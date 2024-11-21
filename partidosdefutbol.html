@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partidos de Fútbol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚽️ Partidos de Fútbol en Vivo</h1>
+
+    <!-- Widget de API-Sports -->
+    <div id="wg-api-football-games" 
+        data-host="v3.football.api-sports.io" 
+        data-key="aac1a9ebd9025f38f5704f8b753884ea" 
+        data-date="" 
+        data-league="" 
+        data-season="" 
+        data-theme="light" 
+        data-refresh="60" 
+        data-show-toolbar="true" 
+        data-show-errors="false" 
+        data-show-logos="true" 
+        data-modal-game="true" 
+        data-modal-standings="true" 
+        data-modal-show-logos="true"> 
+    </div> 
+
+    <!-- Script del widget -->
+    <script 
+        type="module" 
+        src="https://widgets.api-sports.io/2.0.3/widgets.js">
+    </script>
+</body>
+</html>

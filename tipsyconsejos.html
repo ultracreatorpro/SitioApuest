@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips y Consejos</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Encabezado */
+        header {
+            background-color: #28a745;
+            padding: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 60px;
+        }
+        header img {
+            height: 50px;
+            margin-right: 8px;
+        }
+        header h1 {
+            font-size: 22px;
+        }
+        /* Contenedor del tip */
+        .tip-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 26px;
+        }
+        .tip-container h2 {
+            color: #28a745;
+            font-size: 24px;
+        }
+        .countdown {
+            font-size: 18px;
+            color: #6c757d;
+        }
+        /* Botón de Telegram */
+        .telegram-button {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .telegram-button button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+       }
+        /* Imagen debajo del botón */
+        .telegram-image {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .telegram-image img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="Logo">
+            <h1>TIPS Y CONSEJOS</h1>
+        </div>
+    </header>
+
+    <!-- Contenedor del tip -->
+    <div class="tip-container">
+        <h2 id="daily-tip">TIP DEL DÍA</h2>
+        <p id="tip-text"></p>
+        <p class="countdown">Falta <span id="countdown-timer"></span> para un nuevo tip.</p>
+    </div>
+
+    <!-- Botón para unirse al canal de Telegram -->
+    <div class="telegram-button">
+        <button onclick="window.location.href='https://t.me/+Gk-noR37SQRkYTgx'">
+            Únete a nuestro canal de Telegram para muchos más tips y consejos diarios
+        </button>
+    </div>
+
+    <!-- Imagen debajo del botón -->
+    <div class="telegram-image">
+        <img src="https://i.ibb.co/GPXRbjF/photo-5035224641001598477-y.jpg" alt="Imagen promocional" id="promo-image">
+    </div>
+
+    <script>
+        // Lista de tips
+        const tips = [
+            "Establece un presupuesto para tus apuestas y respétalo.",
+            "Investiga sobre los equipos antes de apostar.",
+            "Evita apostar con emociones, sé racional.",
+            "Diversifica tus apuestas en diferentes deportes.",
+            "Apuesta solo en deportes que entiendas.",
+            "Evita apostar todo tu dinero en una sola apuesta.",
+            "Analiza las estadísticas de los equipos antes de decidir.",
+            "Aprovecha los bonos de bienvenida en las plataformas.",
+            "No persigas tus pérdidas, mantén la calma.",
+            "Estudia las tendencias de los partidos anteriores.",
+            "Evita apostar en eventos desconocidos o poco claros.",
+            "Consulta pronósticos de expertos, pero decide por ti mismo.",
+            "Define tus objetivos a corto y largo plazo.",
+            "No apuestes bajo la influencia del alcohol o drogas.",
+            "Familiarízate con diferentes tipos de apuestas.",
+            "Administra tu tiempo de apuestas sabiamente.",
+            "Recuerda que las apuestas son entretenimiento, no una forma de ingreso.",
+            "Aprovecha las apuestas en vivo cuando sea conveniente.",
+            "Aprende de tus errores y ajusta tus estrategias.",
+            "Sé paciente, las ganancias constantes llevan tiempo."
+        ];
+
+        // Obtener elementos del DOM
+        const tipText = document.getElementById("tip-text");
+        const countdownTimer = document.getElementById("countdown-timer");
+
+        // Función para mostrar un nuevo tip cada 24 horas
+        function showTip() {
+            const currentDate = new Date();
+            const tipIndex = Math.floor(currentDate.getTime() / (1000 * 60 * 60 * 24)) % tips.length;
+            tipText.textContent = tips[tipIndex];
+        }
+
+        // Función para la cuenta regresiva
+        function updateCountdown() {
+            const now = new Date();
+            const nextTipTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+            const timeLeft = nextTipTime - now;
+
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            countdownTimer.textContent = `${hours}h ${minutes}m ${seconds}s`;
+
+            if (timeLeft <= 0) {
+                showTip();
+            }
+        }
+
+        // Inicializar
+        showTip();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

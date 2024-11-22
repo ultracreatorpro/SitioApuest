@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Fútbol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 18px; /* Ajusta el tamaño aquí */
+        }
+        #wg-api-football-standings {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎁 Clasificación y Estadísticas</h1>
+    
+    <!-- Widget de API-Football -->
+    <div id="wg-api-football-standings"
+    data-host="v3.football.api-sports.io"
+    data-key="aac1a9ebd9025f38f5704f8b753884ea"
+    data-league="140"
+    data-team=""
+    data-season="2022"
+    data-theme=""
+    data-show-errors="false"
+    data-show-logos="true"
+    class="wg_loader">
+</div>
+<script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+    </script>
+</body>
+</html>
